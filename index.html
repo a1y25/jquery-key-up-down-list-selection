@@ -1,0 +1,51 @@
+<style>
+	.selected{
+		background:red;
+	}
+</style>
+
+
+<ul>
+	<li class="selected">one</li>
+	<li>two</li>
+	<li>three</li>
+	<li>four</li>
+</ul>
+
+
+
+<script src="jq.js"></script>
+<script>
+	
+	$(document).on('keyup', function(e){
+
+		var selected = $('.selected');
+		//down arrow
+		if(e.keyCode == 40){
+			var index = selected.index();
+
+			if(index==3){
+				console.log('stop');
+				return;
+			}
+			selected.removeClass('selected').next().addClass('selected');
+
+		}
+
+
+		if(e.keyCode==38){
+			var index = selected.index();
+
+			if(index==0){
+				console.log('stop no up..');
+				return;
+			}
+
+			selected.removeClass('selected').prev().addClass('selected');
+		}
+
+		//thanks for watching...........
+
+	});
+
+</script>
